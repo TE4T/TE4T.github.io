@@ -1,37 +1,48 @@
 <!DOCTYPE html>
-<html lang="zh">
-
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>don’t play god</title>
-    <link rel="stylesheet" href="css/index.css">
-    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
-    <script src="js/bgMove.js"></script>
-    <script src="js/humanMove.js"></script>
-    <script src="js/ctrlBall.js"></script>
-    <script src="js/gameOperation.js"></script>
-    <script src="js/mapOperation.js"></script>
-    
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Don't Play God</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <!-- 控制范围 -->
-    <div id="ctrlSpace">
-        <!-- 控制球 -->
-        <div id="ctrlBall"></div>
+    <!-- 顶部栏：Logo和信息 -->
+    <header class="top-bar">
+        <div class="logo">
+            <h1>Don't Play God</h1>
+        </div>
+        <div class="info-panel">
+            <div class="info-item">
+                <span class="info-label">Score</span>
+                <span class="info-value" id="scoreDisplay">0</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Time</span>
+                <span class="info-value" id="timeDisplay">00:00</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Caught</span>
+                <span class="info-value" id="swapCount">0</span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- 游戏主区域 -->
+    <main class="game-main">
+        <div class="game-container">
+            <canvas id="gameCanvas"></canvas>
+        </div>
+    </main>
+    
+    <!-- 虚拟摇杆（像素风格） -->
+    <div class="joystick-container" id="joystickContainer">
+        <div class="joystick-base" id="joystickBase">
+            <div class="joystick-stick" id="joystickStick"></div>
+        </div>
     </div>
-
-    <!-- 游戏背景 -->
-    <div id="bg" class="bgImg1"></div>
-
-    <!-- 人物 -->
-    <div id="human"></div>
-
-    <!-- 地图 -->
-    <!-- <div id="map"></div> -->
+    
+    <script src="game.js"></script>
 </body>
-
 </html>
+
